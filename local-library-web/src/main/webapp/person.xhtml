@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html">
+<head>
+   <title>Person Menu</title>
+   
+   <script type="text/javascript">
+   	function askForSpecialNeeds() {
+   		if(document.getElementById('addPersonForm:impaired').checked) {
+   			alert("Ask for special needs");
+   		}
+   	}
+   	function showCheckedValue(){ 
+        alert(document.getElementById('addPersonForm:impaired').checked);	 
+     }
+   </script>
+</head>
+<body>
+
+   <h2>WORKS MENU</h2>
+   <hr />
+   <h:form id="addPersonForm">
+      <h3>Name</h3>
+      <h:inputText value="g" />
+      <h3>Surname</h3>
+      <h:inputText value="g" />
+      <h3>Email</h3>
+      <h:inputText value="g" />
+      <h3>Gender</h3>
+      <h:inputText value="g" />
+      <h3>Date of Birth</h3>
+      <h:inputText value="g" />
+      <h3>Picture</h3>
+      <h:inputText value="g" />
+      <h3>Telephone Numbers</h3>
+      <h:inputText value="g" />
+      <h3>Addresses</h3>
+      <h:inputText value="g" />
+      <h3>Impaired</h3>
+      <h:selectBooleanCheckbox title="Impaired" value="Imparied" id="impaired" 
+      		onclick="askForSpecialNeeds()">Impaired</h:selectBooleanCheckbox>
+      <h:commandButton value="Show Checked" onclick="showCheckedValue()" />
+      <br />
+      <br />
+      <h:commandButton action="#{workController.addEntity}"
+            value="Submit" />
+   </h:form>
+   
+   <br />
+   <br />
+   <h:form>
+         <h:commandButton action="home?faces-redirect=true"
+            value="Back To Home Page" />
+   </h:form>
+   
+</body>
+</html>

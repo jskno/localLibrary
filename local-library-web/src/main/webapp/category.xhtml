@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core">
+<head>
+   <title>CATEGORIES</title>
+   
+   <script type="text/javascript">
+         function showHiddenValue(){ 
+            alert(document.getElementById('newCategoryForm:hiddenField').value);	 
+         }
+   </script>
+      
+</head>
+<body>
+
+   <h2>CATEGORIES MENU</h2>
+   <hr />
+   <h:form id="newCategoryForm">
+      <h3>Category Name</h3>
+      <h:inputText value="#{categoryData.name}"/>
+      <h3>Category Father</h3>
+      <h:selectOneMenu value="#{categoryData.fatherId}">
+      	<f:selectItem itemValue="#{null}" itemLabel="--select--" />
+      	<f:selectItems value="#{categoryList.categories.entrySet()}" var="c"
+      			itemLabel="#{c.value}" itemValue="#{c.key}" />
+      </h:selectOneMenu>
+      <br />
+      <h:commandButton action="#{categoryController.addEntity}"
+            value="Submit" />
+      <br />
+      <br />
+      <h3>Get value from inputHidden field</h3>
+  	  <h:inputHidden value="Hello World" id="hiddenField" />
+      <h:commandButton value="Show Hidden Value" onclick="showHiddenValue()" />
+   </h:form>
+   
+   <br />
+   <br />
+   <h:form>
+         <h:commandButton action="home?faces-redirect=true"
+            value="Back To Home Page" />
+   </h:form>
+   
+</body>
+</html>

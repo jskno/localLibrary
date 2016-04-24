@@ -1,0 +1,68 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>es.everis.local.library</groupId>
+    <artifactId>local-library-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>../local-library-parent</relativePath>
+  </parent>
+  
+  <artifactId>local-library-ear</artifactId>
+  <packaging>ear</packaging>
+  <name>local-library EAR</name>
+  <description>	</description>
+  
+  <build>
+		<finalName>local-library-ear</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<configuration>
+					<displayName>${finalName}</displayName>
+					<filtering>true</filtering>
+					<!-- Colocamos las dependencias de terceros en la carpeta lib -->
+					<defaultLibBundleDir>lib/</defaultLibBundleDir>
+					<!-- Las dependencias propias van a primer nivel -->
+					<modules>
+						<ejbModule>
+							<groupId>${parent.groupId}</groupId>
+							<artifactId>local-library-ejb</artifactId>
+							<bundleDir>/</bundleDir>
+						</ejbModule>
+
+						<webModule>
+							<groupId>${pom.groupId}</groupId>
+							<artifactId>local-library-web</artifactId>
+							<contextRoot>/local-library</contextRoot>
+						</webModule>
+
+					</modules>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<dependencies>
+	
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>local-library-ejb</artifactId>
+			<version>${project.version}</version>
+			<type>ejb</type>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>local-library-web</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+			<scope>compile</scope>
+		</dependency>
+		
+	</dependencies>
+	
+</project>

@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>es.everis.local.library</groupId>
+    <artifactId>local-library-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>../local-library-parent</relativePath>
+  </parent>
+  
+  <artifactId>local-library-web</artifactId>
+  <packaging>war</packaging>
+  <name>local-library WEB</name>
+  <description>		</description>
+  
+  <build>
+		<finalName>local-library-web</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifestEntries>
+							<Built-By>everis</Built-By>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+  <dependencies>
+  
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>local-library-ejb</artifactId>
+			<version>${project.version}</version>
+			<type>ejb</type>
+			<scope>provided</scope>
+		</dependency>
+		
+	</dependencies>
+	
+</project>

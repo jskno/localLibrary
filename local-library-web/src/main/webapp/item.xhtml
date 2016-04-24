@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html">
+
+ <head>
+	<title>Items Menu</title>
+</head>
+
+<body>
+
+	<h2>ITEMS MENU</h2>
+	<hr />
+	<h:form>
+	
+		<h3>Work</h3>
+		<h:selectOneMenu value="#{itemData.workId}" converter="javax.faces.Integer">
+			<f:selectItem itemValue="#{null}" itemLabel="--select--" />
+			<f:selectItems value="#{workList.workList.entrySet()}" var="work"
+				itemValue="#{work.key}" itemLabel="#{work.value}"/>
+			<h:inputHidden value="#{}"/>
+		</h:selectOneMenu>
+		
+		<h3>Format</h3>
+		<h:selectOneMenu value="#{itemData.formatType}">
+			<f:selectItems value="#{formatTypes.formats}" var="format"
+				itemValue="#{format.label()}" itemLabel="#{format.label()}"/>
+		</h:selectOneMenu>
+		
+		<br />
+	  	<br />      
+      	<h:commandButton action="#{itemController.addEntity}"
+            value="Submit" />
+	</h:form>
+	
+
+	<br />
+	<br />
+	<h:form>
+	      <h:commandButton action="home?faces-redirect=true"
+	         value="Back To Home Page" />
+	</h:form>
+   
+</body>
+</html>

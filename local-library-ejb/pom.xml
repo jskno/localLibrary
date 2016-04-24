@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>es.everis.local.library</groupId>
+    <artifactId>local-library-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>../local-library-parent</relativePath>
+  </parent>
+  
+  <artifactId>local-library-ejb</artifactId>
+  <packaging>ejb</packaging>
+  <name>local-library EJB</name>
+  
+  <repositories>
+	
+		<repository>
+			<id>JBoss</id>
+			<name>JBoss Repository</name>
+			<url>https://repository.jboss.org/nexus/content/groups/public/</url>
+		</repository>	
+		
+  </repositories>
+	
+  <build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-ejb-plugin</artifactId>
+				<inherited>true</inherited>
+				<configuration>
+					<ejbVersion>3.0</ejbVersion>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+  <dependencies>
+  </dependencies>
+</project>

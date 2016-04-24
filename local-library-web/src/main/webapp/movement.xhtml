@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html">
+<head>
+   <title>JSF Tutorial!</title>
+</head>
+<body>
+
+   <h2>ART MOVEMENTS MENU</h2>
+   <hr />
+   <h:form>
+      <h3>Art Movement Name</h3>
+      <h:inputText value="#{artMovementData.name}" required="true"/>
+      <h3>Century</h3>
+      <h:inputText value="#{artMovementData.century}" required="true"/>
+      <h:commandButton action="#{artMovementController.addEntity}"
+            value="Submit" />
+   </h:form>
+   
+   <br />
+   <br />
+   <h:form>
+         <h:commandButton action="home?faces-redirect=true"
+            value="Back To Home Page" />
+   </h:form>
+   
+</body>
+</html>

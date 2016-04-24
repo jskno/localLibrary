@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+   <title>WORK MENU</title>
+</head>
+<body>
+
+   <h2>WORKS MENU</h2>
+   <hr />
+   <h:form>
+   	  
+      <h:selectOneRadio value="#{gralWorkData.workType}">
+   			<f:selectItems value="#{workTypes.types}" var="type"
+   			itemLabel="#{type}" itemValue="#{type}" />
+   	  </h:selectOneRadio>
+      
+      <h3>Title</h3>
+      <h:inputText value="#{gralWorkData.title}" />
+      
+      
+      <h3>Publication Date</h3>
+      <h:inputText value="#{gralWorkData.publicationDate}">
+      <f:convertDateTime pattern="d-M-yyyy" />
+      </h:inputText>
+      
+      <h3>Art Movement</h3>
+      <h:selectOneMenu value="#{gralWorkData.artMovementId}">
+      		<f:selectItem itemValue="#{null}" itemLabel="--select--" />
+      		<f:selectItems value="#{artMovementList.artMovements.entrySet()}" var="c"
+      				itemLabel="#{c.value}" itemValue="#{c.key}" />
+      </h:selectOneMenu>
+      
+      <h3>Categories</h3>
+      <h:selectManyListbox value="#{gralWorkData.categoriesId}" converter="javax.faces.Integer">
+      		<f:selectItem itemValue="#{null}" itemLabel="--select--" />
+      		<f:selectItems value="#{categoryList.categories.entrySet()}" var="c"
+      				itemLabel="#{c.value}" itemValue="#{c.key}" />
+      </h:selectManyListbox>
+      
+      <h3>Items</h3>
+      <h:inputText value="g" />
+      
+      <h3>Trick</h3>
+      <h:inputText value="#{gralWorkData.trick}" />
+      
+      <h3>Duration</h3>
+      <h:inputText value="#{gralWorkData.duration}" />
+	  
+	  <br />
+	  <br />      
+      <h:commandButton action="#{workController.addEntity}"
+            value="Submit" />
+   </h:form>
+   
+   <br />
+   <br />
+   <h:form>
+         <h:commandButton action="home?faces-redirect=true"
+            value="Back To Home Page" />
+   </h:form>
+   
+</body>
+</html>
